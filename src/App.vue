@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-      <Topbar class="topbar"></Topbar>
+      <Topbar class="topbar"/>
       <main>   
-        <Editor class="editor"></Editor>
-        <Preview class="preview"></Preview>
+        <Editor class="editor"/>
+        <Preview class="preview"/>
       </main>  
   </div>
 </template>
@@ -43,15 +43,17 @@ export default {
     overflow: hidden;
 }
 main{
-  background: #ccc;
+  background: #ddd;
   display: flex;
   flex: 1;
   .editor{
     background: #fff;
-    width: 40em;
+    width: 45vw;
+    min-width: 30em;
     margin: 16px 8px 16px 16px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
+    overflow: hidden;
   }
   .preview{
     background: #fff;
@@ -59,6 +61,7 @@ main{
     margin: 16px 16px 16px 8px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
+    overflow: auto;
   }
 }
 
