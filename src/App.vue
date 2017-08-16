@@ -31,19 +31,34 @@ export default {
   flex-direction: column;
 }
 .topbar{
-  background: pink;
+  box-shadow: 0 0 3px hsla(0, 0, 0, .6);
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
 main{
   background: #ccc;
   display: flex;
   flex: 1;
   .editor{
-    width: 200px;
+    background: #fff;
+    width: 40em;
+    margin: 16px 8px 16px 16px;
+    box-shadow: 0 0 3px hsla(0, 0, 0, .6);
+    border-radius: 5px;
   }
   .preview{
-    background: orange;
+    background: #fff;
     flex: 1;
-    height: 100%;
+    margin: 16px 16px 16px 8px;
+    box-shadow: 0 0 3px hsla(0, 0, 0, .6);
+    border-radius: 5px;
   }
 }
 

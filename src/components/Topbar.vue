@@ -1,10 +1,11 @@
 <template>
     <div id="topbar">
         <div class="logo">
-            <div class="actions">
-                <button>注册</button>
-                <button>登录</button>
-            </div>
+            Resumer
+        </div>
+        <div class="actions">
+            <el-button type="primary">登录</el-button>
+            <el-button type="text">注册</el-button>
         </div>
     </div>
 </template>
@@ -12,5 +13,10 @@
 
 <style lang='scss'>
 #topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    font-size: 20px;
 }
 </style>
