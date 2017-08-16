@@ -4,7 +4,7 @@
       <ol>
         <li v-for="i in [0,1,2,3,4,5]" v-bind:class="{active: currentTab === i}" v-on:click="currentTab = i">
             <svg class="icon" aria-hidden="true">
-              <use v-bind:xlink:href="'#icon-${icons[i]}`"></use>
+              <use v-bind:xlink:href="`#icon-${icons[i]}`"></use>
             </svg>
         </li>
       </ol>
