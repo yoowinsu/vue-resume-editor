@@ -22,7 +22,7 @@
       <li v-bind:class="{active: currentTab === 3}">
         <h2>自我评价</h2>
         <el-form>
-            <el-input type="textarea" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="resume.yourself.content">
+            <el-input type="textarea" size="small" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="resume.yourself.content">
             </el-input>
         </el-form>
       </li>
@@ -111,14 +111,16 @@ export default {
         display: block;
       }
       h2{
-        margin: 10px 0;
+        margin: 10px 0 16px;
+        font-size: 18px;
+        font-weight: 500;
       }
       .item{
         padding: 0 6px 6px;
         position: relative;
         margin: 4px 0;
         &:hover{
-          box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+          // box-shadow: 0 0 2px 1px rgba(0, 0, 0, .3);
         }
         &:hover .el-icon-delete{
           display: block;
@@ -127,7 +129,7 @@ export default {
           display: none;
           position: absolute;
           right: 4px;
-          top: 4px;
+          top: 12px;
           cursor: pointer;
         }
       }

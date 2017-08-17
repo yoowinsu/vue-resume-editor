@@ -5,7 +5,9 @@
         <Editor v-bind:resume="resume" class="editor"/>
         <Preview v-bind:resume="resume" class="preview"/>
       </main>
-      <el-button id="exit-preview" v-on:click="exitPreview">Exit</el-button>
+      <el-button id="exit-preview" size="small" type="success" v-on:click="exitPreview"><svg class="icon" fill="#fff" aria-hidden="true">
+              <use v-bind:xlink:href="'#icon-exit'"></use>
+            </svg>Exit</el-button>
   </div>
 </template>
 
@@ -120,7 +122,7 @@ main{
 .previewMode #exit-preview{
   display: block;
   position: fixed;
-  top: 18px;
-  right: 20px;
+  top: 12px;
+  left: 12px;
 }
 </style>
