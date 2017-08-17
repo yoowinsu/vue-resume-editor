@@ -1,25 +1,28 @@
 <template>
     <div>
-        <h2>工作经历</h2>
+        <h2>教育经历</h2>
         <el-form>
           <div class="item" v-for="(item,index) in items">
-            <el-form-item label="公司">
-              <el-input v-model="items[index].company"></el-input>
+            <el-form-item label="学校">
+                <el-input v-model="items[index].school"></el-input>
             </el-form-item>
             <el-form-item label="时间">
-              <el-input v-model="items[index].time"></el-input>
+                <el-input v-model="items[index].duration"></el-input>
             </el-form-item>
-            <el-form-item label="职位">
-              <el-input v-model="items[index].job"></el-input>
+            <el-form-item label="学位">
+                <el-input v-model="items[index].degree"></el-input>
             </el-form-item>
-            <el-form-item label="工作内容">
+            <el-form-item label="专业">
+                <el-input v-model="items[index].major"></el-input>
+            </el-form-item>
+            <el-form-item label="内容">
                 <el-input class="scroll" type="textarea" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="items[index].content">
                 </el-input>
             </el-form-item>
             <i class="el-icon-delete" v-on:click="removeItem(index)"></i>
           </div>
         </el-form>
-        <el-button class="add-block" type="primary" v-on:click="addItem">添加工作经历</el-button>
+        <el-button class="add-block" type="primary" v-on:click="addItem">添加</el-button>
     </div>
 </template>
 <script>
@@ -28,9 +31,8 @@ export default {
   methods:{
     addItem(){
       this.items.push({
-        company:'',time: '',job: '',content:''
+        school: '',duration: '',degree: '',major: '',content: ''
       })
-      console.log(this.items)
     },
     removeItem(index){
       this.items.splice(index, 1)
@@ -38,4 +40,3 @@ export default {
   }
 }
 </script>
-

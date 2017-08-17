@@ -5,7 +5,8 @@
         </div>
         <div class="actions">
             <el-button type="primary">登录</el-button>
-            <el-button type="text">注册</el-button>
+            <el-button>注册</el-button>
+            <el-button type="primary" v-on:click="preview">预览</el-button>
         </div>
     </div>
 </template>
@@ -20,3 +21,13 @@
     font-size: 20px;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+      preview(){
+          this.$emit('preview')
+      }
+  }
+}
+</script>
