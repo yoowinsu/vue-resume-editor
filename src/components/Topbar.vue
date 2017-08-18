@@ -1,7 +1,7 @@
 <template>
     <div id="topbar">
         <div class="logo">
-            <a href="#">Resumer</a>
+            <a href="#">Resume</a>
         </div>
         <div class="actions">
             <el-button :plain="true" type="success" size="small">登录</el-button>

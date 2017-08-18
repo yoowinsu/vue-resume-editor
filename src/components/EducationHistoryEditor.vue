@@ -15,7 +15,7 @@
             <el-form-item label="专业">
                 <el-input size="small" v-model="items[index].major"></el-input>
             </el-form-item>
-            <el-form-item label="内容">
+            <el-form-item label="奖项">
                 <el-input size="small" class="scroll" type="textarea" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="items[index].content">
                 </el-input>
             </el-form-item>

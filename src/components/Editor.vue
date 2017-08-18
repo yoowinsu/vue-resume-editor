@@ -22,7 +22,7 @@
       <li v-bind:class="{active: currentTab === 3}">
         <h2>自我评价</h2>
         <el-form>
-            <el-input type="textarea" size="small" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="resume.yourself.content">
+            <el-input type="textarea" class="success" size="small" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="resume.yourself.content">
             </el-input>
         </el-form>
       </li>
@@ -63,6 +63,34 @@ export default {
 
 
 <style lang='scss'>
+.el-input-group {
+    width: 40%;
+    margin: 40px 0 0;
+}
+.el-input-group:nth-child(1) {
+    margin-left: -100px;
+}
+.el-radio-button{
+    margin: 40px 0 0; 
+}
+.el-radio-button:nth-child(1){
+    margin-left: -300px;
+}
+.el-select-dropdown__item.selected.hover,.el-select-dropdown__item.selected {
+    background-color: #13CE66;
+}
+input:focus,textarea:focus{
+  border-color: #13CE66 !important;
+}
+.el-radio-button__inner:hover{
+  color: #13ce66 !important;
+}
+.is-active .el-radio-button__inner:hover{
+  color: #fff !important;
+}
+textarea{
+  margin-bottom: 10px;
+}
 .panels li::-webkit-scrollbar,.scroll::-webkit-scrollbar {
     width: 4px; /*垂直方向滚动条宽度*/
 }
@@ -90,6 +118,7 @@ export default {
         width: 24px;
         height: 24px;
         fill: #fff;
+        cursor: pointer;
       }
       &.active{
         background: #fff;
@@ -115,10 +144,14 @@ export default {
         font-size: 18px;
         font-weight: 500;
       }
+      .el-form-item {
+        margin-bottom: 0px;
+      }
       .item{
         padding: 0 6px 6px;
         position: relative;
-        margin: 4px 0;
+        margin: 4px 0 10px;
+        transition: all .7s ease;
         &:hover{
           // box-shadow: 0 0 2px 1px rgba(0, 0, 0, .3);
         }

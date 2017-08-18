@@ -9,7 +9,7 @@
             <el-form-item label="时间">
               <el-input size="small" v-model="items[index].time"></el-input>
             </el-form-item>
-            <el-form-item label="项目介绍">
+            <el-form-item label="项目内容">
                 <el-input size="small" type="textarea" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="items[index].content">
                 </el-input>
             </el-form-item>

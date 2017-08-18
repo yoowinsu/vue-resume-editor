@@ -26,10 +26,11 @@ export default {
           name: '',
           sex: '',
           city: '',
-          birth: ''
+          birthYear: '',
+          birthMonth: ''
         },
         companyHistory: [
-          {company: '',time: '',job: '',content: ''}
+          {company: '',timeStart: '',timeEnd: '',job: '',content: ``}
         ],
         educationHistory: [
           {school: '',duration: '',degree: '',major: '',content: ''}
@@ -102,6 +103,9 @@ main{
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
     overflow: auto;
+  }
+  &:hover+.previewMode #exit-preview{
+    display: none;
   }
 }
 
