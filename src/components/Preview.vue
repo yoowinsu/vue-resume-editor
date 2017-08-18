@@ -1,15 +1,15 @@
 <template>
-    <div id="preview" class="scroll">
-        <div class="bg">
+    <div id="preview" class="scroll" v-on:mouseenter="enter" v-on:mouseleave="leave">
+        <div class="bg" v-bind:class="animation">
             <ul>
-                <li v-for="color in ['活力粉','清澈蓝','珠光橙','温莎红','喀纳斯绿','埃斯托蓝']"
-                v-bind:class="{active: currentTab === color}"
-                v-on:click="currentTab = color">
-                {{color}}
+                <li v-for="i in [0,1,2,3,4,5]"
+                v-bind:class="{active:themeTab === theme[i]}"
+                v-on:click="themeTab = theme[i]">
+                {{themeText[i]}}
                 </li>
             </ul>
         </div>
-        <div class="show" v-bind:class="{active: currentTab === color}">
+        <div class="show" v-bind:class="themeTab">
             <section v-if="!isEmpty(resume.profile)">
                 <h2 class="title">基本信息</h2>
                 <p v-if="resume.profile.name"><span>姓名</span>：{{resume.profile.name}}</p>
@@ -83,15 +83,40 @@
 
 
 <style lang="scss">
+@-webkit-keyframes leave-top{from{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}to{-webkit-transform:translate3d(0,-100%);transform:translate3d(0,-100%);z-index:-1}}
+@-moz-keyframes leave-top{from{-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}to{-moz-transform:translate3d(0,-100%);transform:translate3d(0,-100%);z-index:-1}}
+@keyframes leave-top{from{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}to{-webkit-transform:translate3d(0,-100%,0);-moz-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:-1}}
+
+@-webkit-keyframes enter-top{from{-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:0}to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}}
+@-moz-keyframes enter-top{from{-moz-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:0}to{-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}}
+@keyframes enter-top{from{-webkit-transform:translate3d(0,-100%,0);-moz-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:0}to{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}}
+
+.enter-top {
+    -webkit-animation: enter-top .5s ease-in;
+    -moz-animation: enter-top .5s ease-in;
+    animation: enter-top .5s ease-in;
+}
+
+.leave-top {
+    -webkit-animation: leave-top .5s ease-out;
+    -moz-animation: leave-top .5s ease-out;
+    animation: leave-top .5s ease-out;
+}
+
 #preview{
     width: 96%;
     padding: 4%;
     position: relative;
+    &:hover div.bg{
+        display: block;
+        transition: all .7s;
+    }
     div.bg{
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
+        display: none;
         ul{
             width: 100%;
             display: flex;
@@ -103,21 +128,39 @@
                 flex:1;
                 &:nth-child(1){
                     border-top: 3px solid #FFE5EF;
+                    &.active{
+                      border-bottom: 3px solid #FFE5EF;  
+                    }
                 }
                 &:nth-child(2){
                     border-top: 3px solid #20A0FF;
+                    &.active{
+                      border-bottom: 3px solid #20A0FF;  
+                    }
                 }
                 &:nth-child(3){
                     border-top: 3px solid #FB9A00;
+                    &.active{
+                      border-bottom: 3px solid #FB9A00;  
+                    }
                 }
                 &:nth-child(4){
                     border-top: 3px solid #E0323C;
+                    &.active{
+                      border-bottom: 3px solid #E0323C;  
+                    }
                 }
                 &:nth-child(5){
                     border-top: 3px solid #7ff9bc;
+                    &.active{
+                      border-bottom: 3px solid #7ff9bc;  
+                    }
                 }
                 &:nth-child(6){
                     border-top: 3px solid #1c54f7;
+                    &.active{
+                      border-bottom: 3px solid #1c54f7;  
+                    }
                 }
             }
         }   
@@ -131,7 +174,25 @@
         font-size: 18px;
         font-weight: 400;
         margin: 20px 0 6px -12px;
+        background: linear-gradient(to right, #FFE5EF, #fff);
+    }
+    .pink h2.title{
+        background: linear-gradient(to right, #FFE5EF, #fff);
+    }
+    .sky h2.title{
+        background: linear-gradient(to right, #20A0FF, #fff);
+    }
+    .orange h2.title{
         background: linear-gradient(to right, #FB9A00, #fff);
+    }
+    .red h2.title{
+        background: linear-gradient(to right, #E0323C, #fff);
+    }
+    .green h2.title{
+        background: linear-gradient(to right, #7ff9bc, #fff);
+    }
+    .blue h2.title{
+        background: linear-gradient(to right, #1c54f7, #fff);
     }
     li{
             margin-bottom: 14px;
@@ -147,6 +208,14 @@
 
 <script>
 export default {
+  data(){
+    return{
+      theme: ['pink','sky','orange','red','green','blue'],
+      themeText: ['活力粉','清澈蓝','跃动橙','温莎红','喀纳斯绿','埃斯托蓝'],
+      themeTab: 'pink',
+      animation: ''
+    }
+  },
   props: ['resume'],
   methods: {
       filter(array){//遍历数组书每一个对象
@@ -161,6 +230,12 @@ export default {
             }
         }
         return empty
+      },
+      enter(){
+          this.animation = 'enter-top'
+      },
+      leave(){
+          this.animation = 'leave-top'
       }
   }
 }

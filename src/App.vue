@@ -119,6 +119,12 @@ main{
   max-width: 700px;
   margin: 20px auto;
 }
+.previewMode #preview .bg{
+  display: none;
+}
+.previewMode #preview:hover div.bg{
+  display: none;
+}
 
 #exit-preview{
   display: none;
