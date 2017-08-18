@@ -1,73 +1,83 @@
 <template>
     <div id="preview" class="scroll">
-
-        <section v-if="!isEmpty(resume.profile)">
-            <h2 class="title">基本信息</h2>
-            <p v-if="resume.profile.name"><span>姓名</span>：{{resume.profile.name}}</p>
-            <p v-if="resume.profile.sex"><span>性别</span>：{{resume.profile.sex}}</p>
-            <p v-if="resume.profile.city"><span>所在城市</span>：{{resume.profile.city}}</p>
-            <p v-if="resume.profile.birthYear"><span>生日</span>：{{resume.profile.birthYear}}{{resume.profile.birthMonth}}</p>
-        </section>
-        <section v-if="filter(resume.companyHistory).length > 0">
-            <h2 class="title">工作经历</h2>
+        <div class="bg">
             <ul>
-                <li v-for="companyHistory in filter(resume.companyHistory)">
-                    <p v-if="companyHistory.company"><span>公司</span>：{{companyHistory.company}}</p>
-                    <p v-if="companyHistory.timeStart"><span>在职时间</span>：{{companyHistory.timeStart}}————{{companyHistory.timeEnd}}</p>
-                    <p v-if="companyHistory.job"><span>职位</span>：{{companyHistory.job}}</p>
-                    <p v-if="companyHistory.content"><span>工作内容</span>：{{companyHistory.content}}</p>
+                <li v-for="color in ['活力粉','清澈蓝','珠光橙','温莎红','喀纳斯绿','埃斯托蓝']"
+                v-bind:class="{active: currentTab === color}"
+                v-on:click="currentTab = color">
+                {{color}}
                 </li>
             </ul>
-        </section>
-        <section v-if="filter(resume.educationHistory).length > 0">
-            <h2 class="title">教育经历</h2>
-            <ul>
-                <li v-for="educationHistory in filter(resume.educationHistory)">
-                    <p v-if="educationHistory.school"><span>学校</span>：{{educationHistory.school}}</p>
-                    <p v-if="educationHistory.duration"><span>时间</span>：{{educationHistory.duration}}</p>
-                    <p v-if="educationHistory.degree"><span>学位</span>：{{educationHistory.degree}}</p>
-                    <p v-if="educationHistory.major"><span>专业</span>：{{educationHistory.major}}</p>                    
-                    <p v-if="educationHistory.content"><span>奖项</span>：{{educationHistory.content}}</p>
-                </li>
-            </ul>
-        </section>
-
-        <section v-if="!isEmpty(resume.yourself)">
-            <h2 class="title">自我评价</h2>
-            <p v-if="resume.yourself.content">{{resume.yourself.content}}</p>
-        </section>
-
-        <section v-if="filter(resume.skill).length > 0">
-            <h2 class="title">技能清单</h2>
-            <ul>
-                <li v-for="skill in filter(resume.skill)">
-                    <p v-if="skill.list">{{skill.list}}</p>
-                </li>
-            </ul>
-        </section>
-
-        <section v-if="filter(resume.project).length > 0">
-            <h2 class="title">项目经验</h2>
-            <ul>
-                <li v-for="project in filter(resume.project)">
-                    <p v-if="project.name"><span>项目名称</span>：{{project.name}}</p>
-                    <p v-if="project.time"><span>时间</span>：{{project.time}}</p>                   
-                    <p v-if="project.content"><span>项目内容</span>：{{project.content}}</p>
-                </li>
-            </ul>
-        </section>
-
-        <section v-if="filter(resume.call).length > 0">
-            <h2 class="title">联系方式</h2>
-            <ul>
-                <li v-for="call in filter(resume.call)">
-                    <p v-if="call.phone"><span>电话</span>：{{call.phone}}</p>
-                    <p v-if="call.mail"><span>邮箱</span>：{{call.mail}}</p>                   
-                    <p v-if="call.qq"><span>QQ</span>：{{call.qq}}</p>
-                    <p v-if="call.other">{{call.other}}</p>                    
-                </li>
-            </ul>
-        </section>
+        </div>
+        <div class="show" v-bind:class="{active: currentTab === color}">
+            <section v-if="!isEmpty(resume.profile)">
+                <h2 class="title">基本信息</h2>
+                <p v-if="resume.profile.name"><span>姓名</span>：{{resume.profile.name}}</p>
+                <p v-if="resume.profile.sex"><span>性别</span>：{{resume.profile.sex}}</p>
+                <p v-if="resume.profile.city"><span>所在城市</span>：{{resume.profile.city}}</p>
+                <p v-if="resume.profile.birthYear"><span>生日</span>：{{resume.profile.birthYear}}{{resume.profile.birthMonth}}</p>
+            </section>
+            <section v-if="filter(resume.companyHistory).length > 0">
+                <h2 class="title">工作经历</h2>
+                <ul>
+                    <li v-for="companyHistory in filter(resume.companyHistory)">
+                        <p v-if="companyHistory.company"><span>公司</span>：{{companyHistory.company}}</p>
+                        <p v-if="companyHistory.timeStart"><span>在职时间</span>：{{companyHistory.timeStart}}——{{companyHistory.    timeEnd}}</p>
+                        <p v-if="companyHistory.job"><span>职位</span>：{{companyHistory.job}}</p>
+                        <p v-if="companyHistory.content"><span>工作内容</span>：{{companyHistory.content}}</p>
+                    </li>
+                </ul>
+            </section>
+            <section v-if="filter(resume.educationHistory).length > 0">
+                <h2 class="title">教育经历</h2>
+                <ul>
+                    <li v-for="educationHistory in filter(resume.educationHistory)">
+                        <p v-if="educationHistory.school"><span>学校</span>：{{educationHistory.school}}</p>
+                        <p v-if="educationHistory.durationStart"><span>时间</span>：{{educationHistory.    durationStart}}——{{educationHistory.durationEnd}}</p>
+                        <p v-if="educationHistory.degree"><span>学位</span>：{{educationHistory.degree}}</p>
+                        <p v-if="educationHistory.major"><span>专业</span>：{{educationHistory.major}}</p>                    
+                        <p v-if="educationHistory.content"><span>奖项</span>：{{educationHistory.content}}</p>
+                    </li>
+                </ul>
+            </section>
+    
+            <section v-if="!isEmpty(resume.yourself)">
+                <h2 class="title">自我评价</h2>
+                <p v-if="resume.yourself.content">{{resume.yourself.content}}</p>
+            </section>
+    
+            <section v-if="filter(resume.skill).length > 0">
+                <h2 class="title">技能清单</h2>
+                <ul>
+                    <li v-for="skill in filter(resume.skill)">
+                        <p v-if="skill.list">{{skill.list}}</p>
+                    </li>
+                </ul>
+            </section>
+    
+            <section v-if="filter(resume.project).length > 0">
+                <h2 class="title">项目经验</h2>
+                <ul>
+                    <li v-for="project in filter(resume.project)">
+                        <p v-if="project.name"><span>项目名称</span>：{{project.name}}</p>
+                        <p v-if="project.timeStart"><span>时间</span>：{{project.timeStart}}——{{project.timeEnd}}</    p>                   
+                        <p v-if="project.content"><span>项目内容</span>：{{project.content}}</p>
+                    </li>
+                </ul>
+            </section>
+    
+            <section v-if="filter(resume.call).length > 0">
+                <h2 class="title">联系方式</h2>
+                <ul>
+                    <li v-for="call in filter(resume.call)">
+                        <p v-if="call.phone"><span>电话</span>：{{call.phone}}</p>
+                        <p v-if="call.mail"><span>邮箱</span>：{{call.mail}}</p>                   
+                        <p v-if="call.qq"><span>QQ</span>：{{call.qq}}</p>
+                        <p v-if="call.other">{{call.other}}</p>                    
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
 </template>
 
@@ -76,11 +86,52 @@
 #preview{
     width: 96%;
     padding: 4%;
+    position: relative;
+    div.bg{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        ul{
+            width: 100%;
+            display: flex;
+            li{
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                line-height: 26px;
+                flex:1;
+                &:nth-child(1){
+                    border-top: 3px solid #FFE5EF;
+                }
+                &:nth-child(2){
+                    border-top: 3px solid #20A0FF;
+                }
+                &:nth-child(3){
+                    border-top: 3px solid #FB9A00;
+                }
+                &:nth-child(4){
+                    border-top: 3px solid #E0323C;
+                }
+                &:nth-child(5){
+                    border-top: 3px solid #7ff9bc;
+                }
+                &:nth-child(6){
+                    border-top: 3px solid #1c54f7;
+                }
+            }
+        }   
+    }
+    h3{
+        text-align: center;
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
     h2.title{
         font-size: 18px;
         font-weight: 400;
         margin: 20px 0 6px -12px;
-        background: linear-gradient(to right, #FFE5EF, #fff);
+        background: linear-gradient(to right, #FB9A00, #fff);
     }
     li{
             margin-bottom: 14px;

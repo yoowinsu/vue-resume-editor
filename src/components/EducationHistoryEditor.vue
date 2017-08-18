@@ -7,7 +7,17 @@
                 <el-input size="small" v-model="items[index].school"></el-input>
             </el-form-item>
             <el-form-item label="时间">
-                <el-input size="small" v-model="items[index].duration"></el-input>
+              <el-input size="small" v-model="items[index].durationStart" placeholder="起始时间">
+                <el-select v-model="items[index].durationStart" slot="prepend">
+                  <el-option v-for="start in times" v-bind:label="start" v-bind:value="start"></el-option>
+                </el-select>
+              </el-input>
+              <span class="to">至</span>
+              <el-input size="small" v-model="items[index].durationEnd" placeholder="结束时间">
+                <el-select v-model="items[index].durationEnd" slot="prepend">
+                  <el-option v-for="end in times" v-bind:label="end" v-bind:value="end"></el-option>
+                </el-select>
+              </el-input>
             </el-form-item>
             <el-form-item label="学位">
                 <el-input size="small" v-model="items[index].degree"></el-input>
@@ -36,6 +46,26 @@ export default {
     },
     removeItem(index){
       this.items.splice(index, 1)
+    }
+  },
+  computed: {
+    times: function () {
+      let arr = []
+      let nowYear = new Date().getFullYear()
+      let nowMonth = new Date().getMonth()+1
+      for(let i = nowYear;i>nowYear-20;i--){
+        for(let j=12;j>0;j--){
+          if(j.toString().length === 1){
+            arr.push(i+'年0'+j+'月')
+          }else{
+            arr.push(i.toString()+'年'+j+'月')
+          }
+        }
+      }
+      for(let k=0;k<12-nowMonth;k++){
+         arr.shift()
+       }
+      return arr
     }
   }
 }

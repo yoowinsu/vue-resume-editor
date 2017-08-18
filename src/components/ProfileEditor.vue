@@ -15,16 +15,14 @@
             <el-input size="small" v-model="profile.city"></el-input>
           </el-form-item>
           <el-form-item label="生日">
-            <el-input size="small" v-model="profile.birthYear">
+            <el-input size="small" v-model="profile.birthYear" placeholder="年">
                 <el-select v-model="profile.birthYear" slot="prepend">
-                  <el-option v-for="year in allYears" size="small" v-bind:label="year" v-bind:value="year+'年'" placeholder="年份"></el-option>
-                  <template slot="append">年</template>
+                  <el-option v-for="year in times" size="small" v-bind:label="year" v-bind:value="year+'年'" placeholder="年份"></el-option>
                 </el-select>
               </el-input>
-              <el-input size="small" v-model="profile.birthMonth">
+              <el-input size="small" v-model="profile.birthMonth" placeholder="月">
                 <el-select v-model="profile.birthMonth" slot="prepend">
                   <el-option v-for="month in [1,2,3,4,5,6,7,8,9,10,11,12]" v-bind:label="month" v-bind:value="month+'月'" placeholder="月份"></el-option>
-                  <template slot="append">月</template>
                 </el-select>
               </el-input>
           </el-form-item>
@@ -36,7 +34,7 @@
 export default {
   props: ['profile'],
   computed: {
-    allYears: function (){
+    times: function (){
       let arr = []
       let now = new Date().getFullYear()
       for(let i = now;arr.length<60;i--){

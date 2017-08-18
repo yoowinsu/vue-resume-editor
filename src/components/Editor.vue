@@ -63,19 +63,70 @@ export default {
 
 
 <style lang='scss'>
-.el-input-group {
-    width: 40%;
-    margin: 40px 0 0;
+/*下拉按钮宽度*/
+.el-input .el-select .el-input{
+  width: 36px;
+} 
+/*第一个面板*/
+#editor .panels li:nth-child(1){
+  .el-form-item:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  .el-radio-button:nth-child(1){
+    // width: 20px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+  }
+  .el-radio-button:nth-child(2){
+    position: absolute;
+    left: 32px;
+    top: 40px;
+  }
+  /*birth*/
+  .el-input-group:nth-child(1){
+    width: 34%;
+    position: absolute;
+    left: 0;
+    top: 40px;
+  }
+  .el-input-group:nth-child(2){
+    width: 34%;
+    position: absolute;
+    left: 35%;
+    top: 40px;
+  }.el-input-group{
+    width: 34%;
+  }
 }
-.el-input-group:nth-child(1) {
-    margin-left: -100px;
-}
-.el-radio-button{
-    margin: 40px 0 0; 
-}
-.el-radio-button:nth-child(1){
-    margin-left: -300px;
-}
+
+/*第二个面板*/
+#editor .panels li:nth-child(2),#editor .panels li:nth-child(3),#editor .panels li:nth-child(6){
+  .el-form-item:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  /*birth*/
+  .el-input-group:nth-child(1){
+    width: 42%;
+    position: absolute;
+    left: 0;
+    top: 40px;
+  }
+  .to{
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -7px;
+  }
+  .el-input-group:nth-child(3){
+    width: 42%;
+    position: absolute;
+    right: 0;
+    top: 40px;
+  }
+} 
+
+/*color*/
 .el-select-dropdown__item.selected.hover,.el-select-dropdown__item.selected {
     background-color: #13CE66;
 }

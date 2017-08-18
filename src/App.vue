@@ -33,13 +33,13 @@ export default {
           {company: '',timeStart: '',timeEnd: '',job: '',content: ``}
         ],
         educationHistory: [
-          {school: '',duration: '',degree: '',major: '',content: ''}
+          {school: '',durationStart: '',durationEnd: '',degree: '',major: '',content: ''}
         ],
         skill: [
           {list: ''}
         ],
         project: [
-          {name: '',time: '',content: ''}
+          {name: '',timeStart: '',timeEnd: '',content: ''}
         ],
         yourself:{content: ''},
         call: [
@@ -90,7 +90,7 @@ main{
   .editor{
     background: #fff;
     width: 40vw;
-    min-width: 30em;
+    min-width: 32em;
     margin: 16px 8px 16px 16px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;

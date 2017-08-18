@@ -7,16 +7,15 @@
               <el-input size="small" v-model="items[index].company"></el-input>
             </el-form-item>
             <el-form-item label="在职时间">
-              <el-input size="small" v-model="items[index].time">
-                <el-select v-model="items[index].timeStart" slot="prepend" placeholder="年份">
+              <el-input size="small" v-model="items[index].timeStart" placeholder="起始时间">
+                <el-select v-model="items[index].timeStart" slot="prepend">
                   <el-option v-for="start in times" v-bind:label="start" v-bind:value="start"></el-option>
-                  <template slot="append">年</template>
                 </el-select>
               </el-input>
-              <el-input size="small" v-model="items[index].time">
-                <el-select v-model="items[index].timeEnd" slot="prepend" placeholder="月份">
+              <span class="to">至</span>
+              <el-input size="small" v-model="items[index].timeEnd" placeholder="结束时间">
+                <el-select v-model="items[index].timeEnd" slot="prepend">
                   <el-option v-for="end in times" v-bind:label="end" v-bind:value="end"></el-option>
-                  <template slot="append">月</template>
                 </el-select>
               </el-input>
             </el-form-item>
@@ -47,12 +46,12 @@ export default {
     }
   },
   computed: {
-    times: function (){
+    times: function () {
       let arr = []
       let nowYear = new Date().getFullYear()
       let nowMonth = new Date().getMonth()+1
-      for(let i = nowYear;arr.length<20;i--){
-        for(let j=12;j<12;j--){
+      for(let i = nowYear;i>nowYear-20;i--){
+        for(let j=12;j>0;j--){
           if(j.toString().length === 1){
             arr.push(i+'年0'+j+'月')
           }else{
@@ -60,9 +59,9 @@ export default {
           }
         }
       }
-      // for(i=0;i<12-nowMonth;i++){
-      //   arr.shift()
-      // }
+      for(let k=0;k<12-nowMonth;k++){
+         arr.shift()
+       }
       return arr
     }
   }
