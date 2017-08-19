@@ -142,15 +142,15 @@ input:focus,textarea:focus{
 textarea{
   margin-bottom: 10px;
 }
-.panels li::-webkit-scrollbar,.scroll::-webkit-scrollbar {
+.panels li::-webkit-scrollbar,.scroll::-webkit-scrollbar,textarea::-webkit-scrollbar {
     width: 4px; /*垂直方向滚动条宽度*/
 }
       /*滚动条轨道*/
-.panels li::-webkit-scrollbar-track,.scroll::-webkit-scrollbar-track {
+.panels li::-webkit-scrollbar-track,.scroll::-webkit-scrollbar-track,textarea::-webkit-scrollbar-track {
     background-color: #eee;
 } 
       /*滑块*/
-.panels li::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb {
+.panels li::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb,textarea::-webkit-scrollbar-thumb {
     background-color: #C2C1C3;
     border-radius: 2px;
 }

@@ -5,9 +5,12 @@
         <Editor v-bind:resume="resume" class="editor"/>
         <Preview v-bind:resume="resume" class="preview"/>
       </main>
-      <el-button id="exit-preview" size="small" type="success" v-on:click="exitPreview"><svg class="icon" fill="#fff" aria-hidden="true">
-              <use v-bind:xlink:href="'#icon-exit'"></use>
-            </svg>Exit</el-button>
+      <el-button id="exit-preview" size="small" type="success" v-on:click="exitPreview">
+        Exit
+      </el-button>
+      <el-button id="print" size="small" type="success" v-on:click="print">
+        打印简历
+      </el-button>
   </div>
 </template>
 
@@ -30,7 +33,7 @@ export default {
           birthMonth: ''
         },
         companyHistory: [
-          {company: '',timeStart: '',timeEnd: '',job: '',content: ``}
+          {company: '',timeStart: '',timeEnd: '',job: '',content: ''}
         ],
         educationHistory: [
           {school: '',durationStart: '',durationEnd: '',degree: '',major: '',content: ''}
@@ -57,6 +60,9 @@ export default {
     },
     exitPreview(){
       this.previewMode = false
+    },
+    print(){
+      window.print()
     }
   }
 }
@@ -109,30 +115,45 @@ main{
   }
 }
 
-.previewMode #topbar{
-  display: none;
+.previewMode{
+  #topbar{
+    display: none;
+  }
+  #editor{
+    display: none;
+  }
+  #preview{
+    max-width: 700px;
+    margin: 20px auto;
+    .bg{
+      display: none;
+    }
+    &:hover div.bg{
+      display: none;
+    }
+  }
+  #exit-preview{
+    display: block;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+  }
+  #print{
+    display: block;
+    position: fixed;
+    top: 44px;
+    left: 12px;
+    margin-left: 0;
+  }
 }
-.previewMode #editor{
-  display: none;
-}
-.previewMode #preview{
-  max-width: 700px;
-  margin: 20px auto;
-}
-.previewMode #preview .bg{
-  display: none;
-}
-.previewMode #preview:hover div.bg{
+
+#exit-preview,#print{
   display: none;
 }
 
-#exit-preview{
-  display: none;
-}
-.previewMode #exit-preview{
-  display: block;
-  position: fixed;
-  top: 12px;
-  left: 12px;
+@media print {
+  .previewMode #print,.previewMode #exit-preview{
+    display: none;
+  }
 }
 </style>

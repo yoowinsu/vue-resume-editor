@@ -23,12 +23,8 @@
 #topbar .logo a{
     color: #888;
     display: inline-block;
-    font-size: 22px;
-    font-family: 'Comic Sans MS', sans-serif;
-}
-#topbar .logo a:hover{
-    text-shadow: 0 0 1px rgba(0,0,0,.4);
-    transition: all .5s;
+    font-size: 26px;
+    font-family: sans-serif;
 }
 </style>
 

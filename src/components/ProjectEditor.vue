@@ -35,7 +35,7 @@ export default {
   methods:{
     addItem(){
       this.items.push({
-          name: '',time: '',content: ''
+          name: '',timeStart: '',timeEnd: '',content: ''
         })
     },
     removeItem(index){

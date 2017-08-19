@@ -33,10 +33,10 @@
                 <ul>
                     <li v-for="educationHistory in filter(resume.educationHistory)">
                         <p v-if="educationHistory.school"><span>学校</span>：{{educationHistory.school}}</p>
-                        <p v-if="educationHistory.durationStart"><span>时间</span>：{{educationHistory.    durationStart}}——{{educationHistory.durationEnd}}</p>
+                        <p v-if="educationHistory.durationStart"><span>时间</span>：{{educationHistory.durationStart}}——{{educationHistory.durationEnd}}</p>
                         <p v-if="educationHistory.degree"><span>学位</span>：{{educationHistory.degree}}</p>
                         <p v-if="educationHistory.major"><span>专业</span>：{{educationHistory.major}}</p>                    
-                        <p v-if="educationHistory.content"><span>奖项</span>：{{educationHistory.content}}</p>
+                        <p v-if="educationHistory.content"><span>奖项及其他</span>：{{educationHistory.content}}</p>
                     </li>
                 </ul>
             </section>
@@ -60,7 +60,7 @@
                 <ul>
                     <li v-for="project in filter(resume.project)">
                         <p v-if="project.name"><span>项目名称</span>：{{project.name}}</p>
-                        <p v-if="project.timeStart"><span>时间</span>：{{project.timeStart}}——{{project.timeEnd}}</    p>                   
+                        <p v-if="project.timeStart"><span>时间</span>：{{project.timeStart}}——{{project.timeEnd}}</p>                   
                         <p v-if="project.content"><span>项目内容</span>：{{project.content}}</p>
                     </li>
                 </ul>
@@ -73,6 +73,7 @@
                         <p v-if="call.phone"><span>电话</span>：{{call.phone}}</p>
                         <p v-if="call.mail"><span>邮箱</span>：{{call.mail}}</p>                   
                         <p v-if="call.qq"><span>QQ</span>：{{call.qq}}</p>
+                        <p v-if="call.wechat"><span>微信</span>：{{call.wechat}}</p>
                         <p v-if="call.other">{{call.other}}</p>                    
                     </li>
                 </ul>
@@ -126,41 +127,30 @@
                 cursor: pointer;
                 line-height: 26px;
                 flex:1;
-                &:nth-child(1){
+                border-top: 3px solid transparent; 
+                &:nth-child(1):hover,&:nth-child(1).active{
                     border-top: 3px solid #FFE5EF;
-                    &.active{
-                      border-bottom: 3px solid #FFE5EF;  
-                    }
+                    transition: all .6s;
                 }
-                &:nth-child(2){
+                &:nth-child(2):hover,&:nth-child(2).active{
                     border-top: 3px solid #20A0FF;
-                    &.active{
-                      border-bottom: 3px solid #20A0FF;  
-                    }
+                    transition: all .6s;
                 }
-                &:nth-child(3){
+                &:nth-child(3):hover,&:nth-child(3).active{
                     border-top: 3px solid #FB9A00;
-                    &.active{
-                      border-bottom: 3px solid #FB9A00;  
-                    }
+                    transition: all .6s;
                 }
-                &:nth-child(4){
+                &:nth-child(4):hover,&:nth-child(4).active{
                     border-top: 3px solid #E0323C;
-                    &.active{
-                      border-bottom: 3px solid #E0323C;  
-                    }
+                    transition: all .6s;
                 }
-                &:nth-child(5){
+                &:nth-child(5):hover,&:nth-child(5).active{
                     border-top: 3px solid #7ff9bc;
-                    &.active{
-                      border-bottom: 3px solid #7ff9bc;  
-                    }
+                    transition: all .6s;
                 }
-                &:nth-child(6){
+                &:nth-child(6):hover,&:nth-child(6).active{
                     border-top: 3px solid #1c54f7;
-                    &.active{
-                      border-bottom: 3px solid #1c54f7;  
-                    }
+                    transition: all .6s;
                 }
             }
         }   
@@ -237,6 +227,21 @@ export default {
       leave(){
           this.animation = 'leave-top'
       }
-  }
+  },
+//   computed: {
+//       toHtml: function(){
+//           function turn(str){
+//               return ((str.replace(/<(.+?)>/gi,"&lt;$1&gt;")).replace(/ /gi,"&nbsp;")).replace(/\n/gi,"<br>")
+//           }
+//           console.log(this.resume)
+//           return {
+//               education: turn(this.resume.educationHistory.content),
+//               skill: turn(this.resume.skill.list),
+//               company: turn(this.resume.companyHistory.content),
+//               call: turn(this.resume.call.other),
+//               yourself: turn(this.resume.yourself.content)
+//           }
+//       }
+//   }
 }
 </script>

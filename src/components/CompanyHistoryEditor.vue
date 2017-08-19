@@ -38,7 +38,7 @@ export default {
   methods:{
     addItem(){
       this.items.push({
-        company:'',time: '',job: '',content:''
+        company: '',timeStart: '',timeEnd: '',job: '',content: ''
       })
     },
     removeItem(index){

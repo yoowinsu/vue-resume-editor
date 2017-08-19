@@ -25,7 +25,7 @@
             <el-form-item label="专业">
                 <el-input size="small" v-model="items[index].major"></el-input>
             </el-form-item>
-            <el-form-item label="奖项">
+            <el-form-item label="奖项及其他">
                 <el-input size="small" class="scroll" type="textarea" :autosize="{ minRows: 4}" placeholder="请输入内容" v-model="items[index].content">
                 </el-input>
             </el-form-item>
@@ -40,8 +40,9 @@ export default {
   props: ['items'],
   methods:{
     addItem(){
+      console.log(this.items[0].content)
       this.items.push({
-        school: '',duration: '',degree: '',major: '',content: ''
+        school: '',durationStart: '',durationEnd: '',degree: '',major: '',content: ''
       })
     },
     removeItem(index){
@@ -53,7 +54,7 @@ export default {
       let arr = []
       let nowYear = new Date().getFullYear()
       let nowMonth = new Date().getMonth()+1
-      for(let i = nowYear;i>nowYear-20;i--){
+      for(let i = nowYear;i>nowYear-40;i--){
         for(let j=12;j>0;j--){
           if(j.toString().length === 1){
             arr.push(i+'年0'+j+'月')

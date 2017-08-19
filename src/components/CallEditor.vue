@@ -12,6 +12,9 @@
             <el-form-item label="QQ">
                 <el-input size="small" v-model="items[index].qq" v-on:input="fn"></el-input>
             </el-form-item>
+            <el-form-item label="微信">
+                <el-input size="small" v-model="items[index].wechat" v-on:input="fn"></el-input>
+            </el-form-item>
             <el-form-item label="其他联系方式">
                 <el-input size="small" class="scroll" type="textarea" :autosize="{ minRows: 2}" placeholder="请输入内容" v-model="items[index].other">
                 </el-input>
