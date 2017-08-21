@@ -46,7 +46,7 @@ export default {
         ],
         yourself:{content: ''},
         call: [
-          {phone: '',mail:'',qq:'',other:''}
+          {phone: '',mail:'',qq:'',wechat: '',other:''}
         ]
       }
     }

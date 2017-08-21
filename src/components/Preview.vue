@@ -92,32 +92,28 @@
 @-moz-keyframes enter-top{from{-moz-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:0}to{-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}}
 @keyframes enter-top{from{-webkit-transform:translate3d(0,-100%,0);-moz-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);z-index:0}to{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:0}}
 
-.enter-top {
-    -webkit-animation: enter-top .5s ease-in;
-    -moz-animation: enter-top .5s ease-in;
-    animation: enter-top .5s ease-in;
-}
 
 .leave-top {
     -webkit-animation: leave-top .5s ease-out;
     -moz-animation: leave-top .5s ease-out;
     animation: leave-top .5s ease-out;
 }
+.enter-top {
+    -webkit-animation: enter-top .5s ease-in;
+    -moz-animation: enter-top .5s ease-in;
+    animation: enter-top .5s ease-in;
+}
 
 #preview{
     width: 96%;
     padding: 4%;
     position: relative;
-    &:hover div.bg{
-        display: block;
-        transition: all .7s;
-    }
-    div.bg{
+    .bg{
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        display: none;
+        z-index: -1;
         ul{
             width: 100%;
             display: flex;
@@ -128,32 +124,30 @@
                 line-height: 26px;
                 flex:1;
                 border-top: 3px solid transparent; 
+                transition: border-top .6s;
                 &:nth-child(1):hover,&:nth-child(1).active{
                     border-top: 3px solid #FFE5EF;
-                    transition: all .6s;
                 }
                 &:nth-child(2):hover,&:nth-child(2).active{
                     border-top: 3px solid #20A0FF;
-                    transition: all .6s;
                 }
                 &:nth-child(3):hover,&:nth-child(3).active{
                     border-top: 3px solid #FB9A00;
-                    transition: all .6s;
                 }
                 &:nth-child(4):hover,&:nth-child(4).active{
                     border-top: 3px solid #E0323C;
-                    transition: all .6s;
                 }
                 &:nth-child(5):hover,&:nth-child(5).active{
                     border-top: 3px solid #7ff9bc;
-                    transition: all .6s;
                 }
                 &:nth-child(6):hover,&:nth-child(6).active{
                     border-top: 3px solid #1c54f7;
-                    transition: all .6s;
                 }
             }
         }   
+    }
+    .enter-top{
+        z-index: 1;
     }
     h3{
         text-align: center;
