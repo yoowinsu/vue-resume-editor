@@ -215,12 +215,16 @@
         margin: 10%;
         word-wrap: break-word;
         word-break: break-all;
-        header h1{
-           text-align: center;
-           font-weight: 600;
-           font-size: 24px;
-           display: none;
-       }
+        header {
+            border-bottom: none;
+            h1{
+                text-align: center;
+                font-weight: 600;
+                font-size: 24px;
+                display: none;
+            }
+        }
+        
        i{
            font-style: normal;
        }
@@ -267,7 +271,6 @@
             margin-left: 0;
         }
         header{
-            padding-top: 10px;
             background: #F4F6F6;
             border-bottom: 2px solid #F4F6F6;
             h1{
@@ -327,7 +330,6 @@
             margin-left: 0;
         }
         header{
-            padding-top: 10px;
             background: #F4F6F6;
             border-bottom: 2px solid #F4F6F6;
             h1{

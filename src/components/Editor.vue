@@ -184,13 +184,13 @@ textarea{
       }
       span.hover-title:after{
         content: '';
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
         border-right: 5px solid rgba(0, 0, 0, 0.5);
         position: absolute;
         left: 0;
         top: 50%;
-        transform: translate(-5px,-4px);
+        transform: translate(-5px,-6px);
       }
       .icon {
         width: 24px;
