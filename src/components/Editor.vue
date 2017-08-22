@@ -6,6 +6,7 @@
             <svg class="icon" aria-hidden="true">
               <use v-bind:xlink:href="`#icon-${icons[i]}`"></use>
             </svg>
+            <span class="hover-title">{{title[i]}}</span>
         </li>
       </ol>
     </nav>
@@ -52,7 +53,8 @@ export default {
   data(){
     return{
       currentTab: 0,
-      icons: ['jibenxinxi','WORK','xueli','moban8ziwopingjia','jishu1','02','iconwolxwm']
+      icons: ['jibenxinxi','WORK','xueli','moban8ziwopingjia','jishu1','02','iconwolxwm'],
+      title: ['基本信息','工作经历','教育经历','自我评价','技能清单','项目经验','联系方式']
     }
   },
   components: {
@@ -159,24 +161,55 @@ textarea{
   display: flex;
   min-height: 100px;
   nav {
-    background: #222;
+    background: #13CE66;
     width: 60px;
     height: 100%;
     ol li{
       text-align: center;
       padding: 16px 0;
+      position: relative;
+      span.hover-title{
+        display: block;
+        color: #eee;
+        padding: 0.25em 0;
+        left: 80%;
+        transform: translateY(-0.75em);
+        top: 50%;
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        width: 5em;
+        border-radius: 3px;
+        z-index: 1;
+        display: none;
+      }
+      span.hover-title:after{
+        content: '';
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-right: 5px solid rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(-5px,-4px);
+      }
       .icon {
         width: 24px;
         height: 24px;
         fill: #fff;
         cursor: pointer;
       }
+      .icon:hover+.hover-title{
+        display: block;
+      }
       &.active{
         background: #fff;
         .icon{
           fill: #000;
         }
-      } 
+      }
+      &.active .icon:hover+.hover-title{
+        display: none;
+      }
     }
   }
   .panels{

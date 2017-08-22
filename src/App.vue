@@ -5,10 +5,10 @@
         <Editor v-bind:resume="resume" class="editor"/>
         <Preview v-bind:resume="resume" class="preview"/>
       </main>
-      <el-button id="exit-preview" size="small" type="success" v-on:click="exitPreview">
+      <el-button id="exit-preview" :plain="true" size="small" type="success" v-on:click="exitPreview">
         Exit
       </el-button>
-      <el-button id="print" size="small" type="success" v-on:click="print">
+      <el-button id="print" :plain="true" size="small" type="success" v-on:click="print">
         打印简历
       </el-button>
   </div>

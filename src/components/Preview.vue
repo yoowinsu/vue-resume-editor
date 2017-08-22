@@ -108,6 +108,7 @@
     width: 96%;
     padding: 4%;
     position: relative;
+    color: #48576A;
     .bg{
         width: 100%;
         position: absolute;
@@ -157,34 +158,36 @@
     h2.title{
         font-size: 18px;
         font-weight: 400;
+        display: inline-block;
         margin: 20px 0 6px -12px;
-        background: linear-gradient(to right, #FFE5EF, #fff);
+        color: #48576A;
+        background: #FFE5EF;
     }
     .pink h2.title{
-        background: linear-gradient(to right, #FFE5EF, #fff);
+        background:#FFE5EF;
     }
     .sky h2.title{
-        background: linear-gradient(to right, #20A0FF, #fff);
+        background: #20A0FF;
     }
     .orange h2.title{
-        background: linear-gradient(to right, #FB9A00, #fff);
+        background: #FB9A00;
     }
     .red h2.title{
-        background: linear-gradient(to right, #E0323C, #fff);
+        background: #E0323C;
     }
     .green h2.title{
-        background: linear-gradient(to right, #7ff9bc, #fff);
+        background: #7ff9bc;
     }
     .blue h2.title{
-        background: linear-gradient(to right, #1c54f7, #fff);
+        background: #1c54f7;
     }
     li{
-            margin-bottom: 14px;
+        margin-bottom: 14px;
     }
     p{
         line-height: 22px;
         span{
-            font-weight: 500;
+            font-weight: 600;
         }
     }
 } 
