@@ -105,6 +105,7 @@ main{
   .preview{
     background: #fff;
     flex: 1;
+    min-width: 300px;
     margin: 16px 16px 16px 8px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
@@ -118,9 +119,11 @@ main{
 .previewMode{
   #topbar{
     display: none;
+    color: #48576A;
   }
   #editor{
     display: none;
+    color: #48576A;
   }
   #preview{
     max-width: 700px;

@@ -10,74 +10,151 @@
             </ul>
         </div>
         <div class="show" v-bind:class="themeTab">
-            <section v-if="!isEmpty(resume.profile)">
-                <h2 class="title">基本信息</h2>
-                <p v-if="resume.profile.name"><span>姓名</span>：{{resume.profile.name}}</p>
-                <p v-if="resume.profile.sex"><span>性别</span>：{{resume.profile.sex}}</p>
-                <p v-if="resume.profile.city"><span>所在城市</span>：{{resume.profile.city}}</p>
-                <p v-if="resume.profile.birthYear"><span>生日</span>：{{resume.profile.birthYear}}{{resume.profile.birthMonth}}</p>
-            </section>
-            <section v-if="filter(resume.companyHistory).length > 0">
-                <h2 class="title">工作经历</h2>
-                <ul>
-                    <li v-for="companyHistory in filter(resume.companyHistory)">
-                        <p v-if="companyHistory.company"><span>公司</span>：{{companyHistory.company}}</p>
-                        <p v-if="companyHistory.timeStart"><span>在职时间</span>：{{companyHistory.timeStart}}——{{companyHistory.    timeEnd}}</p>
-                        <p v-if="companyHistory.job"><span>职位</span>：{{companyHistory.job}}</p>
-                        <p v-if="companyHistory.content"><span>工作内容</span>：{{companyHistory.content}}</p>
-                    </li>
-                </ul>
-            </section>
-            <section v-if="filter(resume.educationHistory).length > 0">
-                <h2 class="title">教育经历</h2>
-                <ul>
-                    <li v-for="educationHistory in filter(resume.educationHistory)">
-                        <p v-if="educationHistory.school"><span>学校</span>：{{educationHistory.school}}</p>
-                        <p v-if="educationHistory.durationStart"><span>时间</span>：{{educationHistory.durationStart}}——{{educationHistory.durationEnd}}</p>
-                        <p v-if="educationHistory.degree"><span>学位</span>：{{educationHistory.degree}}</p>
-                        <p v-if="educationHistory.major"><span>专业</span>：{{educationHistory.major}}</p>                    
-                        <p v-if="educationHistory.content"><span>奖项及其他</span>：{{educationHistory.content}}</p>
-                    </li>
-                </ul>
-            </section>
+            <header>
+                <h1 v-if="resume.profile.name">{{resume.profile.name}}</h1>
+            </header>
+            <div class="resume-content">
+                <section v-if="!isEmpty(resume.profile)">
+                    <h2 class="title">基本信息</h2>
+                    <div v-if="resume.profile.name" class="name">
+                        <span>姓名</span>
+                        <i>：</i>
+                        <p>{{resume.profile.name}}</p>
+                    </div>
+                    <div v-if="resume.profile.sex">
+                        <span>性别</span>
+                        <i>：</i>
+                        <p class="sex">{{resume.profile.sex}}</p>
+                    </div>
+                    <div v-if="resume.profile.city">
+                        <span>所在城市</span>
+                        <i>：</i>
+                        <p class="city">{{resume.profile.city}}</p>
+                    </div>
+                    <div v-if="resume.profile.birthYear">
+                        <span>生日</span>
+                        <i>：</i>
+                        <p class="birth">{{resume.profile.birthYear}}{{resume.profile.birthMonth}}</p>
+                    </div>
+                </section>
+                <section v-if="filter(resume.companyHistory).length > 0">
+                    <h2 class="title">工作经历</h2>
+                    <ul>
+                        <li v-for="companyHistory in filter(resume.companyHistory)">
+                            <div v-if="companyHistory.company">
+                                <span>公司</span>
+                                <i>：</i>
+                                <p>{{companyHistory.company}}</p>
+                            </div>
+                            <div v-if="companyHistory.timeStart">
+                                <span>在职时间</span>
+                                <i>：</i>
+                                <p>{{companyHistory.timeStart}}——{{companyHistory.timeEnd}}</p>
+                            </div>
+                            <div v-if="companyHistory.job">
+                                <span>职位</span>
+                                <i>：</i>
+                                <p>{{companyHistory.job}}</p>
+                            </div>
+                            <div v-if="companyHistory.content">
+                                <span>工作内容</span>
+                                <i>：</i>
+                                <p>{{companyHistory.content}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section v-if="filter(resume.educationHistory).length > 0">
+                    <h2 class="title">教育经历</h2>
+                    <ul>
+                        <li v-for="educationHistory in filter(resume.educationHistory)">
+                            <div v-if="educationHistory.school">
+                                <span>学校</span>
+                                <i>：</i>
+                                <p>{{educationHistory.school}}</p>
+                            </div>
+                            <div v-if="educationHistory.durationStart">
+                                <span>时间</span>
+                                <i>：</i>
+                                <p>{{educationHistory.durationStart}}——{{educationHistory.durationEnd}}</p>
+                            </div>
+                            <div v-if="educationHistory.degree">
+                                <span>学位</span>
+                                <i>：</i>
+                                <p>{{educationHistory.degree}}</p>
+                            </div>
+                            <div v-if="educationHistory.major">
+                                <span>专业</span>
+                                <i>：</i>
+                                <p>{{educationHistory.major}}</p>
+                            </div>                   
+                            <div v-if="educationHistory.content">
+                                <span>奖项及其他</span>
+                                <i>：</i>
+                                <p>{{educationHistory.content}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
     
-            <section v-if="!isEmpty(resume.yourself)">
-                <h2 class="title">自我评价</h2>
-                <p v-if="resume.yourself.content">{{resume.yourself.content}}</p>
-            </section>
+                <section v-if="!isEmpty(resume.yourself)">
+                    <h2 class="title">自我评价</h2>
+                    <div v-if="resume.yourself.content">{{resume.yourself.content}}</div>
+                </section>
     
-            <section v-if="filter(resume.skill).length > 0">
-                <h2 class="title">技能清单</h2>
-                <ul>
-                    <li v-for="skill in filter(resume.skill)">
-                        <p v-if="skill.list">{{skill.list}}</p>
-                    </li>
-                </ul>
-            </section>
+                <section v-if="filter(resume.skill).length > 0">
+                    <h2 class="title">技能清单</h2>
+                    <ul>
+                        <li v-for="skill in filter(resume.skill)">
+                            <p v-if="skill.list">{{skill.list}}</p>
+                        </li>
+                    </ul>
+                </section>
     
-            <section v-if="filter(resume.project).length > 0">
-                <h2 class="title">项目经验</h2>
-                <ul>
-                    <li v-for="project in filter(resume.project)">
-                        <p v-if="project.name"><span>项目名称</span>：{{project.name}}</p>
-                        <p v-if="project.timeStart"><span>时间</span>：{{project.timeStart}}——{{project.timeEnd}}</p>                   
-                        <p v-if="project.content"><span>项目内容</span>：{{project.content}}</p>
-                    </li>
-                </ul>
-            </section>
+                <section v-if="filter(resume.project).length > 0">
+                    <h2 class="title">项目经验</h2>
+                    <ul>
+                        <li v-for="project in filter(resume.project)">
+                            <div v-if="project.name">
+                                <span>项目名称</span>
+                                <i>：</i>
+                                <p>{{project.name}}</p>
+                            </div>
+                            <div v-if="project.timeStart">
+                                <span>时间</span>
+                                <i>：</i>
+                                <p>{{project.timeStart}}——{{project.timeEnd}}</p>
+                            </div>                   
+                            <div v-if="project.content">
+                                <span>项目内容</span>
+                                <i>：</i>
+                                <p>{{project.content}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
     
-            <section v-if="filter(resume.call).length > 0">
-                <h2 class="title">联系方式</h2>
-                <ul>
-                    <li v-for="call in filter(resume.call)">
-                        <p v-if="call.phone"><span>电话</span>：{{call.phone}}</p>
-                        <p v-if="call.mail"><span>邮箱</span>：{{call.mail}}</p>                   
-                        <p v-if="call.qq"><span>QQ</span>：{{call.qq}}</p>
-                        <p v-if="call.wechat"><span>微信</span>：{{call.wechat}}</p>
-                        <p v-if="call.other">{{call.other}}</p>                    
-                    </li>
-                </ul>
-            </section>
+                <section v-if="filter(resume.call).length > 0">
+                    <h2 class="title">联系方式</h2>
+                    <ul>
+                        <li v-for="call in filter(resume.call)">
+                            <div v-if="call.phone"><span>电话</span>
+                                <i>：</i>
+                                {{call.phone}}</div>
+                            <div v-if="call.mail"><span>邮箱</span>
+                                <i>：</i>
+                                {{call.mail}}</div>                   
+                            <div v-if="call.qq"><span>QQ</span>
+                                <i>：</i>
+                                {{call.qq}}</div>
+                            <div v-if="call.wechat"><span>微信</span>
+                                <i>：</i>
+                                {{call.wechat}}</div>
+                            <div v-if="call.other">{{call.other}}</div>                    
+                        </li>
+                    </ul>
+                </section>  
+            </div>
         </div>
     </div>
 </template>
@@ -106,7 +183,6 @@
 
 #preview{
     width: 96%;
-    padding: 4%;
     position: relative;
     color: #48576A;
     .bg{
@@ -126,29 +202,31 @@
                 flex:1;
                 border-top: 3px solid transparent; 
                 transition: border-top .6s;
-                &:nth-child(1):hover,&:nth-child(1).active{
-                    border-top: 3px solid #FFE5EF;
-                }
-                &:nth-child(2):hover,&:nth-child(2).active{
-                    border-top: 3px solid #20A0FF;
-                }
-                &:nth-child(3):hover,&:nth-child(3).active{
-                    border-top: 3px solid #FB9A00;
-                }
-                &:nth-child(4):hover,&:nth-child(4).active{
-                    border-top: 3px solid #E0323C;
-                }
-                &:nth-child(5):hover,&:nth-child(5).active{
-                    border-top: 3px solid #7ff9bc;
-                }
-                &:nth-child(6):hover,&:nth-child(6).active{
-                    border-top: 3px solid #1c54f7;
+                &:hover,&.active{
+                    border-top: 3px solid #13CE66;
                 }
             }
         }   
     }
     .enter-top{
         z-index: 1;
+    }
+    .show{
+        margin: 10%;
+        word-wrap: break-word;
+        word-break: break-all;
+        header h1{
+           text-align: center;
+           font-weight: 600;
+           font-size: 24px;
+           display: none;
+       }
+       i{
+           font-style: normal;
+       }
+       div>p{
+           display: inline-block;
+       }
     }
     h3{
         text-align: center;
@@ -158,28 +236,199 @@
     h2.title{
         font-size: 18px;
         font-weight: 400;
-        display: inline-block;
         margin: 20px 0 6px -12px;
         color: #48576A;
-        background: #FFE5EF;
     }
-    .pink h2.title{
-        background:#FFE5EF;
+    .first{
+        h2{
+            border-bottom: 1px solid #ccc;
+        }
     }
-    .sky h2.title{
-        background: #20A0FF;
+    .second{
+        header h1{
+            display: block;
+        }
+        .name{
+            display: none;
+        }
+        h2{
+            font-weight: 600;
+        }
+        div{
+            margin-bottom: 4px;
+            span{
+                font-weight: 600;
+            }
+        }
     }
-    .orange h2.title{
-        background: #FB9A00;
+    .third{
+        margin: 0;
+        h2.title{
+            margin-left: 0;
+        }
+        header{
+            padding-top: 10px;
+            background: #F4F6F6;
+            border-bottom: 2px solid #F4F6F6;
+            h1{
+                display: block;
+                text-align: left;
+                margin: 0;
+                padding: 8%;
+            }
+        }
+        .name{
+            display: none;
+        }
+        section:nth-child(1)>p:nth-of-type(1){
+            display: none;
+        }
+        .resume-content{
+            padding:0 8%;
+            h2{
+                font-family: inherit;
+                font-weight: 700;
+                line-height: 1.1;
+            }
+            section:nth-child(2) ul,section:nth-child(3) ul,section:nth-child(6) ul{
+                border-left: 1px solid #48576A;
+                padding-left: 14px;
+                li{
+                    position: relative;
+                }
+                li::after{
+                    content: '';
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #48576A;
+                    position: absolute;
+                    top: 0;
+                    left: -18.5px;
+                }
+            }
+            div{
+                span{
+                    display: block;
+                    font-family: Lato, sans-serif;
+                    font-weight: 700;
+                    margin: 4px 0;
+                }
+                i{
+                    display: none;
+                }
+
+            }
+        }
     }
-    .red h2.title{
-        background: #E0323C;
+    .fourth{
+        margin: 0;
+        h2.title{
+            margin-left: 0;
+        }
+        header{
+            padding-top: 10px;
+            background: #F4F6F6;
+            border-bottom: 2px solid #F4F6F6;
+            h1{
+                display: block;
+                text-align: left;
+                margin: 0;
+                padding-left: 8%;
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+        }
+        .name{
+            display: none;
+        }
+        section:nth-child(1){
+            h2{
+                display: none;
+            }
+            div span,i{
+                display: none;
+            }
+            .sex{
+                position: absolute;
+                left: 8%;
+                top: 110px;
+            }
+            .city{
+                font-size: 18px;
+                position: absolute;
+                left: 8%;
+                top: 90px;
+            }
+            .birth{
+                position: absolute;
+                left: 14%;
+                top: 110px;
+            }
+        }
+        section:nth-child(1)>p:nth-of-type(1){
+            display: none;
+        }
+        .resume-content{
+            padding:0 8%;
+            h2{
+                font-family: inherit;
+                font-weight: 700;
+                line-height: 1.1;
+            }
+            div{
+                span{
+                    display: block;
+                    font-family: Lato, sans-serif;
+                    font-weight: 700;
+                    margin: 4px 0;
+                }
+                i{
+                    display: none;
+                }
+
+            }
+        }
     }
-    .green h2.title{
-        background: #7ff9bc;
+    .fifth{
+        h2{
+            border-bottom: 1px solid #ccc;
+            font-weight: 600;
+        }
+        div{
+            margin-bottom: 4px;
+            span{
+                font-weight: 600;
+            }
+        }
     }
-    .blue h2.title{
-        background: #1c54f7;
+    .sixth{
+        margin: 0;
+        h2.title{
+            margin-left: 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+        .resume-content{
+            padding:4% 8% 0;
+            h2{
+                font-family: inherit;
+                font-weight: 700;
+                line-height: 1.1;
+            }
+            div{
+                span{
+                    display: block;
+                    font-family: Lato, sans-serif;
+                    font-weight: 700;
+                    margin: 4px 0;
+                }
+                i{
+                    display: none;
+                }
+
+            }
+        }
     }
     li{
         margin-bottom: 14px;
@@ -187,7 +436,7 @@
     p{
         line-height: 22px;
         span{
-            font-weight: 600;
+            font-weight: 500;
         }
     }
 } 
@@ -197,9 +446,9 @@
 export default {
   data(){
     return{
-      theme: ['pink','sky','orange','red','green','blue'],
-      themeText: ['活力粉','清澈蓝','跃动橙','温莎红','喀纳斯绿','埃斯托蓝'],
-      themeTab: 'pink',
+      theme: ['first','second','third','fourth','fifth','sixth'],
+      themeText: ['样式一','样式二','样式三','样式四','样式五','样式六'],
+      themeTab: 'first',
       animation: ''
     }
   },
