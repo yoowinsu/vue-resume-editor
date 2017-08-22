@@ -1,7 +1,11 @@
 <template>
     <div id="topbar">
         <div class="logo">
-            <a href="#">Resume</a>
+            <a href="#">
+                <svg class="logo-icon" aria-hidden="true">
+                    <use v-bind:xlink:href="`#icon-gerenjianlizitisheji`"></use>
+                </svg>
+            </a>
         </div>
         <div class="actions">
             <el-button :plain="true" type="success" size="small">登录</el-button>
@@ -25,6 +29,13 @@
     display: inline-block;
     font-size: 26px;
     font-family: sans-serif;
+    .logo-icon{
+        height: 40px;
+        position: absolute;
+        left: 20px;
+        top: 6px;
+        width: 80px;
+    }
 }
 </style>
 
