@@ -117,7 +117,7 @@ export default {
   }
 }
 
-.previewMode{
+#app.previewMode{
   #topbar{
     display: none;
     color: #48576A;
