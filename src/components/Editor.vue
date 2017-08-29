@@ -165,6 +165,7 @@ textarea{
     width: 60px;
     height: 100%;
     ol li{
+      cursor: pointer;
       text-align: center;
       padding: 16px 0;
       position: relative;
@@ -198,7 +199,7 @@ textarea{
         fill: #fff;
         cursor: pointer;
       }
-      .icon:hover+.hover-title{
+      &:hover .hover-title{
         display: block;
       }
       &.active{
@@ -207,7 +208,7 @@ textarea{
           fill: #000;
         }
       }
-      &.active .icon:hover+.hover-title{
+      &.active:hover+.hover-title{
         display: none;
       }
     }
