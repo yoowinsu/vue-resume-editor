@@ -18,6 +18,7 @@
 import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
+import Login from './components/Login'
 
 export default {
   name: 'app',
@@ -52,7 +53,7 @@ export default {
     }
   },
   components: {
-    Topbar, Editor, Preview
+    Topbar, Editor, Preview, Login
   },
   methods: {
     preview(){
@@ -89,7 +90,7 @@ export default {
     fill: currentColor;
     overflow: hidden;
 }
-main{
+#app main{
   background: #ddd;
   display: flex;
   flex: 1;
