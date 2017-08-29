@@ -37,7 +37,7 @@
                         <p class="birth">{{resume.profile.birthYear}}{{resume.profile.birthMonth}}</p>
                     </div>
                 </section>
-                <section v-if="filter(resume.companyHistory).length > 0">
+                <section class="company" v-if="filter(resume.companyHistory).length > 0">
                     <h2 class="title">工作经历</h2>
                     <ul>
                         <li v-for="companyHistory in filter(resume.companyHistory)">
@@ -64,7 +64,7 @@
                         </li>
                     </ul>
                 </section>
-                <section v-if="filter(resume.educationHistory).length > 0">
+                <section class="education" v-if="filter(resume.educationHistory).length > 0">
                     <h2 class="title">教育经历</h2>
                     <ul>
                         <li v-for="educationHistory in filter(resume.educationHistory)">
@@ -111,7 +111,7 @@
                     </ul>
                 </section>
     
-                <section v-if="filter(resume.project).length > 0">
+                <section class="project" v-if="filter(resume.project).length > 0">
                     <h2 class="title">项目经验</h2>
                     <ul>
                         <li v-for="project in filter(resume.project)">
@@ -293,7 +293,7 @@
                 font-weight: 700;
                 line-height: 1.1;
             }
-            section:nth-child(2) ul,section:nth-child(3) ul,section:nth-child(6) ul{
+            section.company ul,section.education ul,section.project ul{
                 border-left: 1px solid #48576A;
                 padding-left: 14px;
                 li{
@@ -338,7 +338,7 @@
                 margin: 0;
                 padding-left: 8%;
                 padding-top: 50px;
-                padding-bottom: 50px;
+                padding-bottom: 60px;
             }
         }
         .name{
