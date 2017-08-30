@@ -1,6 +1,7 @@
 # vue-resume-editor
 
-> A Vue.js project
+## 预览链接
+[地址](https://yoowinsu.github.io/vue-resume-editor/dist/)
 
 ## Build Setup
 
