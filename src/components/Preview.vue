@@ -138,19 +138,29 @@
                     <h2 class="title">联系方式</h2>
                     <ul>
                         <li v-for="call in filter(resume.call)">
-                            <div v-if="call.phone"><span>电话</span>
+                            <div v-if="call.phone">
+                                <span>电话</span>
                                 <i>：</i>
-                                {{call.phone}}</div>
-                            <div v-if="call.mail"><span>邮箱</span>
+                                <p>{{call.phone}}</p>
+                            </div>
+                            <div v-if="call.mail">
+                                <span>邮箱</span>
                                 <i>：</i>
-                                {{call.mail}}</div>                   
-                            <div v-if="call.qq"><span>QQ</span>
+                                <p>{{call.mail}}</p>
+                            </div>                   
+                            <div v-if="call.qq">
+                                <span>QQ</span>
                                 <i>：</i>
-                                {{call.qq}}</div>
-                            <div v-if="call.wechat"><span>微信</span>
+                                <p>{{call.qq}}</p>
+                            </div>
+                            <div v-if="call.wechat">
+                                <span>微信</span>
                                 <i>：</i>
-                                {{call.wechat}}</div>
-                            <div v-if="call.other">{{call.other}}</div>                    
+                                <p>{{call.wechat}}</p>
+                            </div>
+                            <div v-if="call.other">
+                                <p>{{call.other}}</p>
+                            </div>                    
                         </li>
                     </ul>
                 </section>  

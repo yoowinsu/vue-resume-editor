@@ -156,7 +156,7 @@ export default {
 }
 
 @media print {
-  .previewMode #print,.previewMode #exit-preview{
+  #app.previewMode #print,#app.previewMode #exit-preview{
     display: none;
   }
 }
