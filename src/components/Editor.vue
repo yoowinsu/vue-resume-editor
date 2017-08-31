@@ -87,15 +87,16 @@ export default {
   }
   /*birth*/
   .el-input-group:nth-child(1){
-    width: 34%;
+    width: 110px;
     position: absolute;
     left: 0;
     top: 40px;
   }
   .el-input-group:nth-child(2){
-    width: 34%;
+    width: 110px;
     position: absolute;
-    left: 35%;
+    margin-left: 4px;
+    left: 110px;
     top: 40px;
   }.el-input-group{
     width: 34%;

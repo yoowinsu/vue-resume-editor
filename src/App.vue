@@ -96,8 +96,8 @@ export default {
   flex: 1;
   .editor{
     background: #fff;
-    width: 40vw;
-    min-width: 32em;
+    width: 45%;
+    // min-width: 32em;
     margin: 16px 8px 16px 16px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
@@ -106,7 +106,7 @@ export default {
   .preview{
     background: #fff;
     flex: 1;
-    min-width: 300px;
+    width: 45%;
     margin: 16px 16px 16px 8px;
     box-shadow: 0 0 3px hsla(0, 0, 0, .6);
     border-radius: 5px;
@@ -158,6 +158,83 @@ export default {
 @media print {
   #app.previewMode #print,#app.previewMode #exit-preview{
     display: none;
+  }
+}
+
+@media (max-width: 768px){
+  #app{
+    .topbar{
+      box-shadow: none;
+      border-bottom: 1px solid #ccc;
+      .el-button+.el-button{
+        margin-left: 4px;
+      }
+    }
+    main .editor{
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+      nav{
+        width: 15%;
+        max-width: 60px;
+      }
+      .panels li:nth-child(2),.panels li:nth-child(3),.panels li:nth-child(6){
+        .el-select-dropdown{
+          width: 100px;
+        }
+        .el-form-item:nth-child(2) {
+          margin-bottom: 120px;
+        }
+        /*birth*/
+        .el-input-group:nth-child(1){
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 40px;
+        }
+        .to{
+          position: absolute;
+          top: 75px;
+          left: 0;
+          line-height: 40px;
+          margin-left: 7px;
+        }
+        .el-input-group:nth-child(3){
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 120px;
+        }
+      }
+    }
+    main .preview{
+      display: none;
+    }
+  }
+  #app.previewMode{
+    #topbar{
+      display: block;
+      .actions{
+        display: none;
+      }
+    }
+    #preview{
+      display: block;
+      margin: 0;
+      max-width: none;
+      box-shadow: none;
+    }
+    #exit-preview{
+      display: block;
+      position: fixed;
+      top: 12px;
+      left: 100%;
+      transform: translateX(-120%);
+      z-index: 2;
+    }
+    #print{
+      display: none;
+    }
   }
 }
 </style>
