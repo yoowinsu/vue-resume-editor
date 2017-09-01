@@ -189,6 +189,7 @@ export default {
       width: 100%;
       margin: 0;
       box-shadow: none;
+      border-radius: 0;
       nav{
         width: 15%;
         max-width: 60px;
@@ -273,6 +274,7 @@ export default {
       margin: 0;
       max-width: none;
       box-shadow: none;
+      border-radius: 0;
     }
     #exit-preview{
       display: block;

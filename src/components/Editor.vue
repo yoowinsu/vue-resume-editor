@@ -162,6 +162,7 @@ textarea{
       text-align: center;
       padding: 16px 0;
       position: relative;
+      border-bottom: 1px solid #34B76F;
       span.hover-title{
         display: block;
         color: #eee;
@@ -197,6 +198,7 @@ textarea{
       }
       &.active{
         background: #fff;
+        border-bottom: none;
         .icon{
           fill: #000;
         }
