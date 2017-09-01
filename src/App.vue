@@ -75,6 +75,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -155,6 +156,20 @@ export default {
   display: none;
 }
 
+/*scroll*/
+::-webkit-scrollbar {
+    width: 4px; /*垂直方向滚动条宽度*/
+}
+      /*滚动条轨道*/
+::-webkit-scrollbar-track {
+    background-color: #eee;
+} 
+      /*滑块*/
+::-webkit-scrollbar-thumb {
+    background-color: #C2C1C3;
+    border-radius: 2px;
+}
+
 @media print {
   #app.previewMode #print,#app.previewMode #exit-preview{
     display: none;
@@ -177,6 +192,41 @@ export default {
       nav{
         width: 15%;
         max-width: 60px;
+        ol li{
+          border-bottom: 1px solid #34B76F;
+          &.active{
+            border-bottom: none;
+            span.hover-title{
+              display: none;
+            }
+            .icon{
+              top: 0;
+            }
+            &:hover span.hover-title{
+              display: none;
+            }
+          }
+          .icon{
+            position: relative;
+            top: -10px;
+          }
+          span.hover-title{
+            display: block;
+            color: #eee;
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0;
+            top: 34px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            position: absolute;
+            z-index: 1;
+          }
+          &.active span.hover-title{
+            color: #000;
+          }
+        }
       }
       .panels li:nth-child(2),.panels li:nth-child(3),.panels li:nth-child(6){
         .el-select-dropdown{

@@ -103,6 +103,10 @@ export default {
   }
 }
 
+/*选择框*/
+.el-select-dropdown{
+    width: 100px;
+}
 /*第二个面板*/
 #editor .panels li:nth-child(2),#editor .panels li:nth-child(3),#editor .panels li:nth-child(6){
   .el-form-item:nth-child(2) {
@@ -144,18 +148,6 @@ input:focus,textarea:focus{
 }
 textarea{
   margin-bottom: 10px;
-}
-.panels li::-webkit-scrollbar,.scroll::-webkit-scrollbar,textarea::-webkit-scrollbar {
-    width: 4px; /*垂直方向滚动条宽度*/
-}
-      /*滚动条轨道*/
-.panels li::-webkit-scrollbar-track,.scroll::-webkit-scrollbar-track,textarea::-webkit-scrollbar-track {
-    background-color: #eee;
-} 
-      /*滑块*/
-.panels li::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb,textarea::-webkit-scrollbar-thumb {
-    background-color: #C2C1C3;
-    border-radius: 2px;
 }
 
 #editor{
@@ -209,7 +201,7 @@ textarea{
           fill: #000;
         }
       }
-      &.active:hover+.hover-title{
+      &.active:hover .hover-title{
         display: none;
       }
     }
