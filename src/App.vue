@@ -223,6 +223,9 @@ export default {
             background-color: transparent;
             position: absolute;
             z-index: 1;
+            &::after{
+              display: none;
+            }
           }
           &.active span.hover-title{
             color: #000;
@@ -265,6 +268,7 @@ export default {
   #app.previewMode{
     #topbar{
       display: block;
+      line-height: 28px;
       .actions{
         display: none;
       }
